@@ -66,7 +66,6 @@ const Login = (props) => {
           type="email"
           placeholder="Enter your email"
           name="email"
-          //   onChange={(e) => handleChange(e)}
           fullWidth
           required
         />
@@ -75,7 +74,7 @@ const Login = (props) => {
           type={showPassword ? "text" : "password"}
           placeholder="Enter password"
           name="password"
-          //   onChange={(e) => handleChange(e)}
+          
           fullWidth
           required
           InputProps={{
