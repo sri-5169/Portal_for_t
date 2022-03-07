@@ -74,7 +74,6 @@ const Login = (props) => {
           type={showPassword ? "text" : "password"}
           placeholder="Enter password"
           name="password"
-          
           fullWidth
           required
           InputProps={{

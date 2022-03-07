@@ -1,7 +1,7 @@
 import { Box } from "@material-ui/core";
 import MaterialTable from "material-table";
 import React from "react";
-import { teacherInfos } from "../constants/teacher";
+import { teacherInfos } from "../../constants/teacher.js";
 import { forwardRef } from "react";
 import {
   AddBox,
@@ -32,11 +32,13 @@ const Table = () => {
     },
     { title: "Type", field: "TeacherType" },
     { title: "Name", field: "TeacherName", defaultSort: "desc" },
-    { title: "DOB", field: "DateofBirth", type: "date" },
+    { title: "AadhaarNo", field: "AadhaarNo" },
     {
       title: "Joining Date",
-      field: "DateofJoining",
-      render: (rowData) => <Link to="/login">Profile</Link>,
+      field: "Profile Link",
+      render: (rowData) => (
+        <Link to={`/detail/${rowData.TeacherName}`}>View Profile</Link>
+      ),
     },
   ];
 
