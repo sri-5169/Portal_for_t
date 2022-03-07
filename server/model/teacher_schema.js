@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const teacherInfoSchema = new mongoose.Schema({
-  id: String,
   EST_SL: String,
   SL_NO: String,
   TeacherType: String,

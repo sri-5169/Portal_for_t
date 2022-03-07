@@ -1,6 +1,6 @@
 import { Box } from "@material-ui/core";
 import MaterialTable from "material-table";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { teacherInfos } from "../../constants/teacher.js";
 import { forwardRef } from "react";
 import {
@@ -21,8 +21,22 @@ import {
   ViewColumn,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { getAllInfos } from "../../../service/api.js";
 
 const Table = () => {
+  const [teacherInfos, setTeacherInfos] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let data = await getAllInfos();
+      console.log(data);
+      setTeacherInfos(data);
+    };
+    fetchData();
+    setInterval(() => {}, 1000);
+    // const data = getAllInfos();
+    // console.log(data);
+  }, []);
   const data = teacherInfos;
   const columns = [
     {
@@ -37,7 +51,7 @@ const Table = () => {
       title: "Joining Date",
       field: "Profile Link",
       render: (rowData) => (
-        <Link to={`/detail/${rowData.TeacherName}`}>View Profile</Link>
+        <Link to={`/detail/${rowData.AadhaarNo}`}>View Profile</Link>
       ),
     },
   ];
@@ -69,6 +83,7 @@ const Table = () => {
     )),
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
   };
+
   return (
     <Box>
       <MaterialTable
