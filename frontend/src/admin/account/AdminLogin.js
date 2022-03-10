@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     },
   },
 });
-const Login = (props) => {
+const AdminLogin = (props) => {
   //   const history = useHistory();
   const [showPassword, setShowPassword] = useState(false);
   const classes = useStyles();
@@ -100,9 +100,12 @@ const Login = (props) => {
         >
           Sign in
         </Button>
+        <Typography>
+          Don't have and account? <Link to="/signup">Sign up</Link>
+        </Typography>
       </Paper>
     </Grid>
   );
 };
 
-export default Login;
+export default AdminLogin;

@@ -8,3 +8,11 @@ export const getAllInfos = async () => {
     console.log("Error while calling GetAllInfos API ", error);
   }
 };
+export const getInfo = async (id) => {
+  try {
+    let response = await axios.get(`${URL}/detail/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log("Error while calling get info API ", error);
+  }
+};

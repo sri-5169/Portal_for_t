@@ -13,9 +13,6 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import { LockOutlined } from "@material-ui/icons";
 import { useState } from "react";
-import { createUser } from "../../service/api";
-import { useHistory } from "react-router-dom";
-import { LoginContext } from "../context/ContextProvider";
 
 const useStyles = makeStyles({
   container: {
@@ -43,35 +40,12 @@ const useStyles = makeStyles({
   },
 });
 const Signup = () => {
-  const history = useHistory();
-  const { account, setAccount } = useContext(LoginContext);
-
-  const [newUser, setNewUser] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
-    year: "",
-    branch: "",
-    email: "",
-    password: "",
-    confirmedPassword: "",
-  });
-
-  const handleChange = (event) => {
-    setNewUser({
-      ...newUser,
-      [event.target.name]: event.target.value,
-    });
-    console.log(newUser);
-  };
+  const handleChange = (event) => {};
   const saveUser = async () => {
     try {
-      await createUser(newUser);
-      setAccount(newUser);
     } catch (error) {
       console.log(error);
     }
-    history.push("/");
   };
   const classes = useStyles();
   return (
@@ -94,7 +68,7 @@ const Signup = () => {
             label="First Name"
             name="firstName"
             type="text"
-            value={newUser.firstName}
+            value={""}
             onChange={(e) => handleChange(e)}
             placeholder="Enter first name"
             required
@@ -105,7 +79,7 @@ const Signup = () => {
             label="Last Name"
             name="lastName"
             type="text"
-            value={newUser.lastName}
+            value={""}
             onChange={(e) => handleChange(e)}
             placeholder="Enter last name"
             required
@@ -116,7 +90,7 @@ const Signup = () => {
           label="Username"
           name="username"
           type="text"
-          value={newUser.username}
+          value={""}
           onChange={(e) => handleChange(e)}
           placeholder="Enter your codename"
           fullWidth
@@ -126,7 +100,7 @@ const Signup = () => {
           <InputLabel id="year-select">Year</InputLabel>
           <Select
             id="year-select"
-            value={newUser.year}
+            value={""}
             name="year"
             onChange={(e) => handleChange(e)}
           >
@@ -151,7 +125,7 @@ const Signup = () => {
             id="branch-select"
             label="Branch"
             name="branch"
-            value={newUser.branch}
+            value={""}
             onChange={(e) => handleChange(e)}
           >
             <MenuItem value={"ECE"}>ECE</MenuItem>
@@ -168,7 +142,7 @@ const Signup = () => {
         <TextField
           className={classes.inputs}
           label="Email"
-          value={newUser.email}
+          value={""}
           type="email"
           name="email"
           onChange={(e) => handleChange(e)}
@@ -181,7 +155,7 @@ const Signup = () => {
           className={classes.inputs}
           label="Password"
           name="password"
-          value={newUser.password}
+          value={""}
           type="password"
           onChange={(e) => handleChange(e)}
           placeholder="Enter username"
@@ -193,7 +167,7 @@ const Signup = () => {
           className={classes.inputs}
           label="Confirm Password"
           name="confirmedPassword"
-          value={newUser.confirmedPassword}
+          value={""}
           type="password"
           onChange={(e) => handleChange(e)}
           placeholder="Enter password again"

@@ -9,3 +9,13 @@ export const GetAllInfos = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+export const GetInfo = async (request, response) => {
+  try {
+    let info = await Teacher.findById(request.params.id);
+    response.status(200).json(info);
+  } catch (error) {
+    console.log(error.messsage);
+    response.status(500).json(error);
+  }
+};

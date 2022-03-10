@@ -1,7 +1,6 @@
 import { Box } from "@material-ui/core";
 import MaterialTable from "material-table";
 import React, { useEffect, useState } from "react";
-import { teacherInfos } from "../../constants/teacher.js";
 import { forwardRef } from "react";
 import {
   AddBox,
@@ -23,7 +22,7 @@ import {
 import { Link } from "react-router-dom";
 import { getAllInfos } from "../../../service/api.js";
 
-const Table = () => {
+const Table = ({ takencolumns }) => {
   const [teacherInfos, setTeacherInfos] = useState([]);
 
   useEffect(() => {
@@ -34,6 +33,7 @@ const Table = () => {
     };
     fetchData();
     setInterval(() => {}, 1000);
+    // console.log(teacherInfos);
     // const data = getAllInfos();
     // console.log(data);
   }, []);
@@ -42,16 +42,149 @@ const Table = () => {
     {
       title: "SL_NO",
       field: "SL_NO",
-      filterPlaceholder: "Filter by serial number",
+      type: "number",
+      filterPlaceholder: "Filter",
+      defaultSort: "asc",
     },
-    { title: "Type", field: "TeacherType" },
-    { title: "Name", field: "TeacherName", defaultSort: "desc" },
-    { title: "AadhaarNo", field: "AadhaarNo" },
+    // {
+    //   title: "EST_SL",
+    //   field: "EST_SL",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "TeacherType",
+    //   field: "TeacherType",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "DateofBirth",
+    //   field: "DateofBirth",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "DateofJoining",
+    //   field: "DateofJoining",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "DateofTraining",
+    //   field: "DateofTraining",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "AccountNo",
+    //   field: "AccountNo",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "IFSCCode",
+    //   field: "IFSCCode",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "UANNumber",
+    //   field: "UANNumber",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "AadhaarNo",
+    //   field: "AadhaarNo",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "EST_SL",
+    //   field: "EST_SL",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "EST_SL",
+    //   field: "EST_SL",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    // },
+    // {
+    //   title: "SL_NO",
+    //   field: "SL_NO",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    //   defaultSort: "asc",
+    // },
+    // {
+    //   title: "SL_NO",
+    //   field: "SL_NO",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    //   defaultSort: "asc",
+    // },
+    // {
+    //   title: "SL_NO",
+    //   field: "SL_NO",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    //   defaultSort: "asc",
+    // },
+    // {
+    //   title: "SL_NO",
+    //   field: "SL_NO",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    //   defaultSort: "asc",
+    // },
+    // {
+    //   title: "SL_NO",
+    //   field: "SL_NO",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    //   defaultSort: "asc",
+    // },
+    // {
+    //   title: "SL_NO",
+    //   field: "SL_NO",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    //   defaultSort: "asc",
+    // },
+    // {
+    //   title: "SL_NO",
+    //   field: "SL_NO",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    //   defaultSort: "asc",
+    // },
+    // {
+    //   title: "SL_NO",
+    //   field: "SL_NO",
+    //   type: "number",
+    //   filterPlaceholder: "Filter",
+    //   defaultSort: "asc",
+    // },
+
     {
-      title: "Joining Date",
+      title: takencolumns.column2,
+      filterPlaceholder: "Filter",
+      field: takencolumns.column2,
+    },
+    {
+      title: takencolumns.column3,
+      filterPlaceholder: "Filter",
+      field: takencolumns.column3,
+    },
+    {
+      title: takencolumns.column4,
+      type: takencolumns.column4 === "PayDrawn" ? "currency" : "string",
+      filterPlaceholder: "Filter",
+      field: takencolumns.column4,
+    },
+    {
+      title: "Profile Links",
       field: "Profile Link",
+      filtering: false,
       render: (rowData) => (
-        <Link to={`/detail/${rowData.AadhaarNo}`}>View Profile</Link>
+        <Link to={`/detail/${rowData._id}`}>View Profile</Link>
       ),
     },
   ];
@@ -87,7 +220,7 @@ const Table = () => {
   return (
     <Box>
       <MaterialTable
-        title="Material Table"
+        title="Details"
         data={data}
         columns={columns}
         icons={tableIcons}
@@ -95,6 +228,13 @@ const Table = () => {
           filtering: true,
           exportButton: true,
           searchFieldVariant: "standard",
+          headerStyle: {
+            backgroundColor: "orange",
+            color: "green",
+            fontWeight: "600",
+          },
+          pageSize: 10,
+          pageSizeOptions: [10, 50, 100],
         }}
       />
     </Box>

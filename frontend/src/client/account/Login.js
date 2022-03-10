@@ -100,6 +100,9 @@ const Login = (props) => {
         >
           Sign in
         </Button>
+        <Typography>
+          Don't have and account? <Link to="/login">Sign up</Link>
+        </Typography>
       </Paper>
     </Grid>
   );

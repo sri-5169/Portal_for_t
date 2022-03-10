@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const teacherInfoSchema = new mongoose.Schema({
   EST_SL: String,
-  SL_NO: String,
+  SL_NO: Number,
   TeacherType: String,
   TeacherName: String,
   DateofBirth: String,
@@ -21,7 +21,7 @@ const teacherInfoSchema = new mongoose.Schema({
   District: String,
   EmploymentUnit: String,
   GradePay: String,
-  PayDraw: String,
+  PayDrawn: String,
   PhoneNumber: String,
 });
 

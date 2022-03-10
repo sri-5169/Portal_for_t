@@ -1,5 +1,6 @@
 export const teacherInfos = [
   {
+    id: 123,
     EST_SL: 2,
     SL_NO: 1,
     TeacherType: 11,
@@ -23,6 +24,7 @@ export const teacherInfos = [
     PayDrawn: 24190,
   },
   {
+    id: 2,
     EST_SL: 3,
     SL_NO: 2,
     TeacherType: 11,
@@ -46,6 +48,7 @@ export const teacherInfos = [
     PayDrawn: 24190,
   },
   {
+    id: 3,
     EST_SL: 4,
     SL_NO: 3,
     TeacherType: 11,
@@ -69,6 +72,7 @@ export const teacherInfos = [
     PayDrawn: 24190,
   },
   {
+    id: 4,
     EST_SL: 6,
     SL_NO: 4,
     TeacherType: 11,
@@ -92,6 +96,7 @@ export const teacherInfos = [
     PayDrawn: 23480,
   },
   {
+    id: 5,
     EST_SL: 7,
     SL_NO: 5,
     TeacherType: 11,
@@ -115,6 +120,7 @@ export const teacherInfos = [
     PayDrawn: 23480,
   },
   {
+    id: 6,
     EST_SL: 8,
     SL_NO: 6,
     TeacherType: 11,
@@ -138,6 +144,7 @@ export const teacherInfos = [
     PayDrawn: 23480,
   },
   {
+    id: 7,
     EST_SL: 9,
     SL_NO: 7,
     TeacherType: 11,
@@ -161,6 +168,7 @@ export const teacherInfos = [
     PayDrawn: 23480,
   },
   {
+    id: 8,
     EST_SL: 144,
     SL_NO: 8,
     TeacherType: 11,
@@ -184,6 +192,7 @@ export const teacherInfos = [
     PayDrawn: 24190,
   },
   {
+    id: 9,
     EST_SL: 145,
     SL_NO: 9,
     TeacherType: 11,
@@ -207,6 +216,7 @@ export const teacherInfos = [
     PayDrawn: 24190,
   },
   {
+    id: 10,
     EST_SL: 147,
     SL_NO: 10,
     TeacherType: 11,
