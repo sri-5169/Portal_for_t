@@ -15,6 +15,7 @@ import { makeStyles } from "@material-ui/styles";
 import { Autorenew, LockOutlined, Visibility, VisibilityOff } from "@material-ui/icons";
 import {  useHistory } from "react-router-dom";
 import { useState } from "react";
+import zIndex from "@material-ui/core/styles/zIndex";
 const useStyles = makeStyles({
   container: {
     margin: "10px auto",
@@ -45,8 +46,9 @@ const useStyles = makeStyles({
       
     width: '100vw',
     height: '30vh',
-    zIndex: '-1',
     objectFit: 'cover',
+    marginBottom: "-100px",
+    zIndex: "-1"
     },
     forgot:{
       color: 'red',

@@ -28,6 +28,7 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     justifyitems: "space-around",
+    // backgroundColor: "wheat"
   },
   link: {
     textDecoration: "none",
@@ -40,10 +41,18 @@ const useStyles = makeStyles({
     padding: "4px",
     borderRadius: "50%",
   },
+  page:{
+    //  display: "flex",
+     backgroundColor: "red",
+     width: "100%",
+     height: "100%"
+
+  }
 });
 const FirstPage = () => {
   const classes = useStyles();
   return (
+    <div className={classes.page}>
     <div className={classes.container}>
       <div>
         <Link to="/adminLogin" className={classes.link}>
@@ -58,6 +67,7 @@ const FirstPage = () => {
           <Button className={classes.btn2}>Teachers</Button>
         </Link>
       </div>
+    </div>
     </div>
   );
 };
