@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import pic from "./poster/caa.png"
 import {
   Avatar,
   Button,
@@ -8,11 +9,13 @@ import {
   Paper,
   TextField,
   Typography,
+  Link,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import { LockOutlined, Visibility, VisibilityOff } from "@material-ui/icons";
-import { Link, useHistory } from "react-router-dom";
+import { Autorenew, LockOutlined, Visibility, VisibilityOff } from "@material-ui/icons";
+import {  useHistory } from "react-router-dom";
 import { useState } from "react";
+import zIndex from "@material-ui/core/styles/zIndex";
 const useStyles = makeStyles({
   container: {
     margin: "10px auto",
@@ -39,7 +42,23 @@ const useStyles = makeStyles({
       backgroundColor: "#34975a",
     },
   },
-});
+    poster:{
+      
+    width: '100vw',
+    height: '30vh',
+    objectFit: 'cover',
+    marginBottom: "-100px",
+    zIndex: "-1"
+    },
+    forgot:{
+      color: 'red',
+     
+    },
+    lastline: {
+      marginTop: '8px'
+    }
+  },
+);
 const Login = (props) => {
   //   const history = useHistory();
   const [showPassword, setShowPassword] = useState(false);
@@ -53,6 +72,8 @@ const Login = (props) => {
   };
 
   return (
+    <>
+    <img className={classes.poster} src={pic} alt="ritix" />
     <Grid align="center" className={classes.container}>
       <Paper elevation={10} className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -100,12 +121,15 @@ const Login = (props) => {
         >
           Sign in
         </Button>
-        <Typography>
+         <Link  className={classes.forgot} href="#" underline="always">Forgot Password ?</Link>
+        <Typography className={classes.lastline}>
           Don't have and account? <Link to="/login">Sign up</Link>
         </Typography>
       </Paper>
     </Grid>
+    </>
   );
+  
 };
 
 export default Login;
