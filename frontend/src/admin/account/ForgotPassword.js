@@ -39,16 +39,11 @@ const useStyles = makeStyles({
       backgroundColor: "#34975a",
     },
   },
- },
-);
+});
 const ForgotPassword = (props) => {
- 
   const classes = useStyles();
 
-
-
   return (
-  
     <Grid align="center" className={classes.container}>
       <Paper elevation={10} className={classes.paper}>
         <h2>POT</h2>
@@ -70,14 +65,11 @@ const ForgotPassword = (props) => {
           //   onClick={() => handleLogin()}
           fullWidth
         >
-         Submit
+          Submit
         </Button>
-         
       </Paper>
     </Grid>
- 
   );
-  
 };
 
 export default ForgotPassword;

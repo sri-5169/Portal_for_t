@@ -1,18 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  Grid,
-  TextField,
-  Typography,
-} from "@material-ui/core";
 import { forwardRef } from "react";
-import { useParams } from "react-router-dom";
-import { teacherInfos } from "../../../../admin/constants/teacher";
-import { getInfo } from "../../../../service/api";
 import MaterialTable from "material-table";
+import { Grid } from "@material-ui/core";
 import {
   AddBox,
   ArrowDownward,
@@ -30,7 +19,8 @@ import {
   Search,
   ViewColumn,
 } from "@material-ui/icons";
-
+import { getInfo } from "../../../../service/api.js";
+import { useParams } from "react-router-dom";
 const DetailView = () => {
   const [info, setInfo] = useState({});
   const { id } = useParams();
@@ -38,11 +28,11 @@ const DetailView = () => {
     const fetchData = async () => {
       let data = await getInfo(id);
       console.log(data);
-      // setTeacherInfos(data);
-      // var convert = Object.keys(data).map(function (key) {
-      //   return [key, data[key]];
-      // });
-      // console.log(convert);
+      setInfo(data);
+      var convert = Object.keys(data).map(function (key) {
+        return [key, data[key]];
+      });
+      console.log(convert);
       setInfo(data);
     };
     fetchData();

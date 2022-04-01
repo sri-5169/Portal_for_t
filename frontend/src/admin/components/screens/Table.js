@@ -2,6 +2,7 @@ import { Box } from "@material-ui/core";
 import MaterialTable from "material-table";
 import React, { useEffect, useState } from "react";
 import { forwardRef } from "react";
+import exportFromJSON from "export-from-json";
 import {
   AddBox,
   ArrowDownward,
@@ -21,10 +22,8 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { getAllInfos } from "../../../service/api.js";
-
 const Table = ({ takencolumns }) => {
   const [teacherInfos, setTeacherInfos] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       let data = await getAllInfos();
@@ -33,11 +32,16 @@ const Table = ({ takencolumns }) => {
     };
     fetchData();
     setInterval(() => {}, 1000);
-    // console.log(teacherInfos);
-    // const data = getAllInfos();
-    // console.log(data);
   }, []);
   const data = teacherInfos;
+  console.log(data);
+  const fileName = "download";
+  const exportType = "xls";
+  const beforeTableEncode =
+    "(entries: { fieldName: string, fieldValues: string[] }[]) => { fieldName: string, fieldValues: string[] }[];";
+  const handleExport = () => {
+    exportFromJSON({ data, fileName, exportType, beforeTableEncode });
+  };
   const columns = [
     {
       title: "SL_NO",
@@ -46,123 +50,6 @@ const Table = ({ takencolumns }) => {
       filterPlaceholder: "Filter",
       defaultSort: "asc",
     },
-    // {
-    //   title: "EST_SL",
-    //   field: "EST_SL",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "TeacherType",
-    //   field: "TeacherType",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "DateofBirth",
-    //   field: "DateofBirth",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "DateofJoining",
-    //   field: "DateofJoining",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "DateofTraining",
-    //   field: "DateofTraining",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "AccountNo",
-    //   field: "AccountNo",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "IFSCCode",
-    //   field: "IFSCCode",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "UANNumber",
-    //   field: "UANNumber",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "AadhaarNo",
-    //   field: "AadhaarNo",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "EST_SL",
-    //   field: "EST_SL",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "EST_SL",
-    //   field: "EST_SL",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    // },
-    // {
-    //   title: "SL_NO",
-    //   field: "SL_NO",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    //   defaultSort: "asc",
-    // },
-    // {
-    //   title: "SL_NO",
-    //   field: "SL_NO",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    //   defaultSort: "asc",
-    // },
-    // {
-    //   title: "SL_NO",
-    //   field: "SL_NO",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    //   defaultSort: "asc",
-    // },
-    // {
-    //   title: "SL_NO",
-    //   field: "SL_NO",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    //   defaultSort: "asc",
-    // },
-    // {
-    //   title: "SL_NO",
-    //   field: "SL_NO",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    //   defaultSort: "asc",
-    // },
-    // {
-    //   title: "SL_NO",
-    //   field: "SL_NO",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    //   defaultSort: "asc",
-    // },
-    // {
-    //   title: "SL_NO",
-    //   field: "SL_NO",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    //   defaultSort: "asc",
-    // },
-    // {
-    //   title: "SL_NO",
-    //   field: "SL_NO",
-    //   type: "number",
-    //   filterPlaceholder: "Filter",
-    //   defaultSort: "asc",
-    // },
-
     {
       title: takencolumns.column2,
       filterPlaceholder: "Filter",
@@ -188,7 +75,6 @@ const Table = ({ takencolumns }) => {
       ),
     },
   ];
-
   const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
     Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -216,9 +102,9 @@ const Table = ({ takencolumns }) => {
     )),
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
   };
-
   return (
     <Box>
+      <button onClick={handleExport}>Export</button>
       <MaterialTable
         title="Details"
         data={data}
@@ -240,5 +126,4 @@ const Table = ({ takencolumns }) => {
     </Box>
   );
 };
-
 export default Table;

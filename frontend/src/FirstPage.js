@@ -41,33 +41,32 @@ const useStyles = makeStyles({
     padding: "4px",
     borderRadius: "50%",
   },
-  page:{
+  page: {
     //  display: "flex",
-     backgroundColor: "red",
-     width: "100%",
-     height: "100%"
-
-  }
+    backgroundColor: "red",
+    width: "100%",
+    height: "100%",
+  },
 });
 const FirstPage = () => {
   const classes = useStyles();
   return (
-    <div className={classes.page}>
     <div className={classes.container}>
       <div>
         <Link to="/adminLogin" className={classes.link}>
           <Button variant="contained" className={classes.btn1}>
-            Admin
+            Login
           </Button>
         </Link>
       </div>
       <Typography className={classes.or}>OR</Typography>
       <div>
-        <Link to="/login" className={classes.link}>
-          <Button className={classes.btn2}>Teachers</Button>
+        <Link to="/adminSignup" className={classes.link}>
+          <Button className={classes.btn2} variant="contained">
+            Signup
+          </Button>
         </Link>
       </div>
-    </div>
     </div>
   );
 };

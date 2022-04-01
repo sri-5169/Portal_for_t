@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Box,
   Button,
   Card,
   CardContent,
@@ -7,12 +8,8 @@ import {
   InputAdornment,
   makeStyles,
   TextField,
-  Typography,
 } from "@material-ui/core";
-
-import { DatePicker } from "@material-ui/pickers";
-import { KeyboardDatePicker } from "@material-ui/pickers";
-import SelectInput from "@material-ui/core/Select/SelectInput";
+import { createTeacherInfo } from "../../../../service/api";
 
 const useStyles = makeStyles((theme) => ({
   adornment: {
@@ -30,14 +27,14 @@ const CreateView = () => {
     DateofBirth: "01-01-2000",
     DateofJoining: "01-01-2000",
     DateofTraining: "01-01-2000",
-    AccountNo:  null,
-    IFSCCode:  null,
+    AccountNo: null,
+    IFSCCode: null,
     UANNumber: null,
     AadhaarNo: null,
     NameAsPerAadhar: null,
     YearAsPerAadhar: null,
     DiseCode: null,
-    Employment_Category:null,
+    Employment_Category: null,
     AreaType: null,
     Block: null,
     District: null,
@@ -86,7 +83,16 @@ const CreateView = () => {
     let Date2 = reverseformat(Date1);
     setInfo({ ...info, [event.target.name]: Date2 });
     setTimeout(4000);
-    console.log(info);
+    // console.log(info);
+  };
+  const saveDetails = async () => {
+    try {
+      await createTeacherInfo(info);
+    } catch (error) {
+      alert(
+        "Was their any mistake in filling the details there was an issue handling it?"
+      );
+    }
   };
   return (
     <div>
@@ -108,7 +114,7 @@ const CreateView = () => {
         >
           Add New Details
         </Button>
-        <form>
+        <Box>
           <CardContent>
             <Grid container spacing={1}>
               <Grid item xs={12} sm={6}>
@@ -427,12 +433,13 @@ const CreateView = () => {
                 }}
                 variant="contained"
                 fullWidth
+                onClick={saveDetails}
               >
                 Submit the Details
               </Button>
             </Grid>
           </CardContent>
-        </form>
+        </Box>
       </Card>
     </div>
   );
