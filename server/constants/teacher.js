@@ -21,6 +21,13 @@ export const teacherInfos = [
     EmploymentUnit: 2,
     GradePay: 2000,
     PayDrawn: 24190,
+    salary : [
+    {
+      month : "July",
+      amount :24190,
+      increment : 0,
+    }
+  ],
   },
   {
     EST_SL: 3,
@@ -44,6 +51,13 @@ export const teacherInfos = [
     EmploymentUnit: 2,
     GradePay: 2000,
     PayDrawn: 24190,
+    salary : [
+    {
+      month : "July",
+      amount :24190,
+      increment : 0,
+    }
+  ],
   },
   {
     EST_SL: 4,
@@ -67,6 +81,13 @@ export const teacherInfos = [
     EmploymentUnit: 2,
     GradePay: 2000,
     PayDrawn: 24190,
+    salary : [
+    {
+      month : "July",
+      amount :24190,
+      increment : 0,
+    }
+  ],
   },
   {
     EST_SL: 6,
@@ -90,6 +111,13 @@ export const teacherInfos = [
     EmploymentUnit: 2,
     GradePay: 2000,
     PayDrawn: 23480,
+    salary : [
+    {
+      month : "July",
+      amount :23480,
+      increment : 0,
+    }
+  ],
   },
   {
     EST_SL: 7,
@@ -113,6 +141,13 @@ export const teacherInfos = [
     EmploymentUnit: 2,
     GradePay: 2000,
     PayDrawn: 23480,
+    salary : [
+    {
+      month : "July",
+      amount :23480,
+      increment : 0,
+    }
+  ],
   },
   {
     EST_SL: 8,
@@ -136,6 +171,13 @@ export const teacherInfos = [
     EmploymentUnit: 2,
     GradePay: 2000,
     PayDrawn: 23480,
+    salary : [
+    {
+      month : "July",
+      amount :23480,
+      increment : 0,
+    }
+  ],
   },
   {
     EST_SL: 9,
@@ -159,6 +201,13 @@ export const teacherInfos = [
     EmploymentUnit: 2,
     GradePay: 2000,
     PayDrawn: 23480,
+    salary : [
+    {
+      month : "July",
+      amount :23480,
+      increment : 0,
+    }
+  ],
   },
   {
     EST_SL: 144,
@@ -182,6 +231,13 @@ export const teacherInfos = [
     EmploymentUnit: 2,
     GradePay: 2000,
     PayDrawn: 24190,
+    salary : [
+    {
+      month : "July",
+      amount :24190,
+      increment : 0,
+    }
+  ],
   },
   {
     EST_SL: 145,
@@ -205,6 +261,13 @@ export const teacherInfos = [
     EmploymentUnit: 2,
     GradePay: 2000,
     PayDrawn: 24190,
+    salary : [
+    {
+      month : "July",
+      amount :24190,
+      increment : 0,
+    }
+  ],
   },
   {
     EST_SL: 147,
@@ -228,5 +291,12 @@ export const teacherInfos = [
     EmploymentUnit: 2,
     GradePay: 2000,
     PayDrawn: 23480,
+    salary : [
+    {
+      month : "July",
+      amount :23480,
+      increment : 0,
+    }
+  ],
   },
 ];

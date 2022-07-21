@@ -23,7 +23,16 @@ const teacherInfoSchema = new mongoose.Schema({
   GradePay: String,
   PayDrawn: String,
   PhoneNumber: String,
+  Address: String,
+  salary : [
+    {
+      month : String,
+      amount : Number,
+      increment : Number,
+    }
+  ],
 });
 
 const teacherInfos = mongoose.model("teachers_info", teacherInfoSchema);
 export default teacherInfos;
+

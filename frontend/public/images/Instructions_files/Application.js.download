@@ -1,0 +1,21 @@
+﻿function AppLogin_Validator(salt) {
+    if (Page_ClientValidate('validate')) {
+        if (document.getElementById('ctl00_ContentPlaceHolder1_txtPassword').value != "") {
+            document.getElementById('ctl00_ContentPlaceHolder1_txtPassword').value = (SHA256(document.getElementById('ctl00_ContentPlaceHolder1_txtPassword').value)).toUpperCase();
+            document.getElementById('ctl00_ContentPlaceHolder1_txtPassword').value = (SHA256(document.getElementById('ctl00_ContentPlaceHolder1_txtPassword').value + salt)).toUpperCase();
+            var len = document.getElementById('ctl00_ContentPlaceHolder1_txtPassword').value.length;
+            
+            if (len > 64 || len < 64) {
+                alert('Operation can not be performed.Your browser is not supporting Password Encryption.');
+                return (false);
+            }
+            return (true);
+        }
+
+    }
+}
+
+function ResetPassword() {
+    // $('input[type = password]').val = "";
+    document.getElementById('ctl00_ContentPlaceHolder1_txtPassword').value = ""
+}
