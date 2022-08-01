@@ -1,20 +1,20 @@
 // import Data from "./data";
 import React, { useContext, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CreateView from "./components/screens/create/CreateView.js";
-import Home from "./components/screens/Home.js";
+import CreateView from "./components/screens/create";
+import Home from "./components/screens/home";
 import AdminLogin from "./account/AdminLogin.js";
 import AdminSignup from "./account/AdminSignup.js";
 import FirstPage from "./FirstPage.js";
 import ForgotPassword from "./account/ForgotPassword.js";
-import TeacherDetails from "./components/screens/detail/TeacherDetails.js";
-import Table from "./components/screens/Table.js";
-import Complaints from "./components/screens/complaints/Complaints.js";
-import ComplaintDetail from "./components/screens/complaints/ComplaintDetail.js";
-import Reports from "./components/screens/reports/Reports.js";
+import TeacherDetails from "./components/screens/detail";
+import Table from "./components/screens/home";
+import Complaints from "./components/screens/complaints";
+import ComplaintDetail from "./components/screens/complaints";
+import Reports from "./components/screens/reports";
 import { LoginContext } from "./context/ContextProvider.js";
 import { getUserDetails } from "./utils/common-utils.js";
-import ReportDetails from "./components/screens/reports/ReportDetails.js";
+import ReportDetails from "./components/screens/reports";
 function App() {
   const {account,setAccount} = useContext(LoginContext);
   useEffect(() => {

@@ -4,10 +4,10 @@ import {
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Banner from "../banner/Banner";
-import Notice from "./notice/Notice";
+import Banner from "../../banner/Banner.js";
+import Notice from "../notice";
 import "./Home.css";
-import { API } from "../../service/api";
+import { API } from "../../../service/api";
 
 const useStyles = makeStyles({
   btn1: {
