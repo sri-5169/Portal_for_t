@@ -30,6 +30,7 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
     function(response) {
         // Stop global loader here
+        
         return processResponse(response);
     },
     function(error) {
@@ -44,6 +45,7 @@ axiosInstance.interceptors.response.use(
 //////////////////////////////
 const processResponse = async (response) => {
     if (await response && response.status === 200) {
+        console.log(response.data);
         return { isSuccess: true, data: response.data }
     } else {
         return {

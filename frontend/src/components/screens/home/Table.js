@@ -22,8 +22,8 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 // import { getAllInfos } from "../../../service/api.js";
-import Banner from "../banner/Banner.js";
-import { API } from "../../service/api.js";
+import Banner from "../../banner/Banner";
+import { API } from "../../../service/api.js";
 const Table = ({ takencolumns }) => {
   const [teacherInfos, setTeacherInfos] = useState([]);
   useEffect(() => {

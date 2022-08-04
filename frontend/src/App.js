@@ -8,13 +8,13 @@ import AdminSignup from "./account/AdminSignup.js";
 import FirstPage from "./FirstPage.js";
 import ForgotPassword from "./account/ForgotPassword.js";
 import TeacherDetails from "./components/screens/detail";
-import Table from "./components/screens/home";
+import Table from "./components/screens/home/Table";
 import Complaints from "./components/screens/complaints";
-import ComplaintDetail from "./components/screens/complaints";
+import ComplaintDetail from "./components/screens/complaints/ComplaintDetail";
 import Reports from "./components/screens/reports";
 import { LoginContext } from "./context/ContextProvider.js";
 import { getUserDetails } from "./utils/common-utils.js";
-import ReportDetails from "./components/screens/reports";
+import ReportDetails from "./components/screens/reports/ReportDetails";
 function App() {
   const {account,setAccount} = useContext(LoginContext);
   useEffect(() => {

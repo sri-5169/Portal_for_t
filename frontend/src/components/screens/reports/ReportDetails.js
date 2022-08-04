@@ -8,6 +8,7 @@ const ReportDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
           let response = await API.getAllReports();
+          console.log(response);
           if(response.isSuccess){
             setReports(response.data);
           }
@@ -17,7 +18,6 @@ const ReportDetails = () => {
         };
         fetchData();
       }, []);
-      
   return (
             <Table reports={reports}/>
     );  

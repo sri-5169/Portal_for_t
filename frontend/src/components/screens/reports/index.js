@@ -21,7 +21,6 @@ const useStyle = makeStyles({
 const Reports = () => {
   const [reports, setreports] = useState([]);
   const user = getUserDetails();
-  const [detail,setDetail] = useState(false);
   const [report,setReport] = useState({
     formLink : "",
     responseLink : "",
@@ -32,6 +31,7 @@ const Reports = () => {
     const fetchData = async () => {
       let response = await API.getAllReports();
       if(response.isSuccess){
+        console.log(response.data);
         setreports(response.data);
       }
       else {
@@ -53,9 +53,7 @@ const Reports = () => {
             console.log("Some Error");
           }
   }
-  const toggleDetail = () => {
-    setDetail(!detail);
-  }
+  
   return (
     <div>
       <Banner />
@@ -65,7 +63,7 @@ const Reports = () => {
           </Link>
       </Grid>
           <RouterLink to="/reportDetails" style={{textDecoration : "none"}}>
-          <Button variant="contained" className={classes.btn} onClick={() => toggleDetail()}>See the reports</Button>
+          <Button variant="contained" className={classes.btn} >See the reports</Button>
           </RouterLink>
           <Card
         style={{
